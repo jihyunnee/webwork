@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    
+    
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #animal{
+            margin-top: 100px;
+            position:absolute;
+
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <div style="margin: 30px;">
+        <button type="button" id="btnstart">start</button>
+        <button type="button" id="btnstop">stop</button>      
+
+    </div>
+    <img src="../image/animal/C8.png" id="animal">
+    <script>
+        var ani=document.getElementById("animal");
+        var x=0;
+
+        document.getElementById("btnstart").onclick=function(){
+            i=setInterval(()=>{
+                x+=10;
+                ani.style.left=x+"px"
+            },100);
+        }
+        document.getElementById("btnstop").onclick=function(){
+                x=0;
+                ani.style.left="0px";//인형 다시 원위치
+                clearInterval(i);//인터벌 멈춤
+
+        }
+
+    </script>
+
+</body>
+</html>

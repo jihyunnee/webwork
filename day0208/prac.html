@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .mybtn{
+            width: 10000px;
+            height: 100px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <h1>marquee 기본값(left,scroll)</h1>
+    <marquee direction="right" style="color: aqua;">
+        <b>집에가고싶다</b>
+    </marquee>
+
+
+
+    <table>
+        <tr height="50" bgcolor="orange">
+
+            <th width="100">이름</th>
+        </tr>
+    
+        <tr height="50" bgcolor="pink">
+
+            <th width="100">배고프네</th>
+        </tr>
+    </table>
+
+<div class="mybtn">
+
+    <b>버튼을 만들어보자</b><br>
+    <input id="txtbtn" type="text"/> 먹고 싶은 메뉴는?<br><br>
+    <button onclick="f1()">오늘의 추천메뉴는?</button>
+    <button type="button" onclick="confirm('집에가고싶다')">confirm이란?</button>
+</div>
+ <div id ="result">결과도출값</div>
+<script>
+
+function f1(){
+    var txtbtn = document.getElementById("txtbtn").value;
+
+    document.getElementById("result").innerText
+     = `오늘 저녁메뉴는 ${txtbtn} 이다!!!!!!!!!!!!!!!!!!!!`;
+    
+}
+</script>
+</body>
+</html>

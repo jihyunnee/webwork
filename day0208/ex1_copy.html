@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+         *{
+            font-size: 1.2rem;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-style:oblique;
+        }
+        .mybox{
+            width: auto;
+            margin: 30px, 30px, 30px, 30px;
+            text-align:center;
+        }
+        .mybtn{
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+   
+</head>
+<body>
+    
+   <div class="mybox">
+        <b>이름 : </b>
+        <input id = "txtname" type="text"/><br><br>
+        <b>자바 : </b>
+        <input id = "txtjava" type="text"/><br><br>
+        <button type="menu" id="btnresult" onclick="f2()">확인</button>
+
+   </div>
+
+   <div id="result">결과</div>
+
+   <script>
+
+        function n(){
+            
+        }    
+
+    
+         function f2(){ 
+            var irum=document.getElementById("txtname").value;
+            var java=document.getElementById("txtjava").value;
+            var s=  
+            `이름 : ${irum}
+            자바 : ${java}
+            `;
+
+            var r= document.getElementById("result");
+
+            r.innerText=s;
+
+        }
+    
+</script>
+</body>
+
+</html>
