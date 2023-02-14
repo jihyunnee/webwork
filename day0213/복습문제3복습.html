@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <b>구구단 숫자 입력 : </b>
+    <input type="text" id="txt" style="width: 100px;">
+    <div id="result">
+       <script>
+        document.getElementById("txt").onkeyup=function(e){
+            var result=document.getElementById("result");
+            var txt=document.getElementById("txt").value;
+
+            var s = "";
+            for(var i=1;i<=9;i++){
+                s+= `${txt}X${i}=${txt*i}<br>`
+            }
+
+            if(e.keyCode==13){
+
+                document.getElementById("result").innerHTML=s;
+            }
+
+
+        }
+
+       </script> 
+
+    </div>
+</body>
+</html>

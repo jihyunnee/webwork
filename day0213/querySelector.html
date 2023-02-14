@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="one">class one-1</div>
+    <div class="one">class one-2</div>
+    <div class="one">class one-3</div>
+        <hr>
+<div class="apple">
+    <div class="banana">apple-banana</div>
+    <div class="kiwi">apple-kiwi</div>
+</div>
+<h3>h3-1</h3>
+<h3>h3-2</h3>
+<h3>h3-3</h3>
+<h3>h3-4</h3>
+
+<script>
+    //복수계의 엘리먼트를 반환, - class 명이 one 인 모든  요소값을 변환
+    var a1=document.getElementsByClassName("one");
+    document.write(`class one은 총 ${a1.length}개 입니다<br>`);
+    
+    //a1의 첫 번째 요소의 style 값 중 font-size를 20px으로 변경
+    a1[0].style.fontSize="20px";
+
+    //a1의 2번째 요소의 style 값을 red으로 변경
+    a1[1].style.color="red";
+
+    //a1 전체 일괄적으로 글꼴 변경
+    for(var a of a1){
+        a.style.fontFamily="Comic Sans Ms";
+    }
+
+    //복수개의 앨리먼트를 반환-태그명dl div인 모든 요소 값을 반환
+    var a2=document.getElementsByClassName("div");
+    document.write(`div은 총 ${a2.length}개 입니다<br>`)
+
+    //a2배열 전체에 일괄적으로 배경색 추가하기
+    //for(var idx in a2){
+    //    a2[idx].style.backgroundColor="#ffc"}
+
+    
+    //클래스 명이 one인 엘리먼트의 첫번째 요소값 1개만 반환- 배열이 아님
+    var a3=document.querySelector(".one");
+    document.write(`class one은 총 ${a3.length}개 입니다<br>`)
+    a3.style.fontsize="30px"
+    
+    //클래스명이 one인 엘리먼트의 모든 요소값ㅇ르 배열형태로 반환
+    var a4=document.querySelectorAll(".one");
+    document.write(`class one은 총 ${a4.length}개 입니다<br>`)
+    for(var a of a4){
+        a.style.color="magenta";
+    }
+
+    //class apple바로 아래의 class명이 banana인 요소값
+    var a5=document.querySelector(".apple>.banana");
+    a5.style.textDecoration="underline";
+   
+    //class apple 바로 아래의 class명이 kiwi인 요소값
+    var a6=document.querySelector(".apple>.kiwi");
+    a6.style.color="green";
+  
+    
+    //복수개의 엘리먼트 반황 - 배열타입
+    var a7=document.querySelectorAll("h3");
+    document.write(`태그 h3은 총 ${a7.length}개입니다<br>`)
+    for(var a of a7){
+        a.style.backgroundColor="lightgray";
+    }
+    
+    </script>
+    
+
+
+</body>
+</html>

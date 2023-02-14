@@ -1,0 +1,22 @@
+***엘리먼트 (요소)값 얻기
+
+제이쿼리 - 배열 안써도됨. 마우스로 가져다대면 해당 값이 모두 나와 훨씬 더 간단하게 할 수 있다.
+
+var a=getElementById("아이디") : 특정 아이디에 대한 단말요소값
+
+var b=getElementByClassName("happy") : b는 클래스 명이 happy인 요소들의 배열 값
+
+var c=getElementByTagName("div") : c는 태그명이 div인 요소들의 배열 값
+
+var d=querySelector("selctor") : d는 셀렉터에 해당하는 요소들 중 첫번째 요소값
+    selctor란 "#nice":아이디 nice를 의미
+                ".class" : 클래스 nice를 의미
+                ".nice b" : 클래스 명이 nice인 태그의 모든 하위 b 태그들
+
+var d=querySelector("selctor") : d는 셀렉터에 해당하는 요소들 중 첫번째 요소값
+
+var e=querySelectorAll("selctor") : e는 셀렉터에 해당하는 모든 요소들
+
+parentElement() : 부모태그의 요소값
+previousElementSibling() : 이벤트가 발생한 바로 앞 요소값
+nextElementSibling() : 이벤트가 발생한 바로 다음 요소값

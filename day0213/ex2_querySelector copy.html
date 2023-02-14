@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        window.onload=function(){
+    
+        //.images 아래 .box 안에 있는 이미지에만 이벤트를적용해보자
+        //복수개의 엘리먼트들을 얻으려면 querySelectorAll 사용
+        var photos=document.querySelectorAll(".images>.box>img")
+
+        for(var p of photos){
+        p.onmouseover=function(){
+           var pre_images = this.getAttribute("src");
+           this.setAttribute("src","../image/moviestar/9.jpg");
+        }
+
+        p.onmouseout=function(){
+           this.setAttribute("src",pre_images);
+        }
+   
+    }
+}
+    </script>
+</head>
+<body>
+    <div class="message">
+                <h1>오늘은 즐거운 월요일 입니다</h1>
+          
+              
+           
+        </table>
+
+    </div>
+
+    <div class="message">
+        안녕하세요
+    </div>
+    <div class="images">
+        <img src="../image/food/10.jpg" width="100">
+        <div class="box">
+            <img src="../image/animal/C3.png" width="100">
+        </div>
+        <div class="box">
+            <img src="../image/animal/C5.png" width="100">
+        </div>
+        <div class="box">
+            <img src="../image/animal/C6.png" width="100">
+        </div>
+    </div>
+
+</body>
+</html>

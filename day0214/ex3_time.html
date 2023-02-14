@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.timer{
+            margin: 30px 30px;
+            font-size: 50px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //초기 시간 출력
+            write_timer();
+
+            //1초마다 시간 다시 출력
+            setInterval(write_timer,1000);
+        }    
+        //사용자 함수
+        function write_timer(){   
+            let today=new Date();
+            let year=today.getFullYear();//현재 년도를 4자리 숫자로 반환
+            let month=today.getMonth()+1;//0~11을 반환 
+            let day=today.getDate();//현재날짜
+
+            let hour=today.getHours();
+            let min=today.getMinutes();
+            let sec=today.getSeconds();
+
+            document.querySelector(".timer").innerHTML=`오늘은 ${year}년 ${month}월 ${day}일입니다<br>
+            ${hour}:${(min<10)?("0"+min):min}:${(sec<10)?("0"+sec):sec}`;;
+        }    
+    </script>
+</head>
+<body>
+    <div class="timer">00:00:00</div>
+</body>
+</html>

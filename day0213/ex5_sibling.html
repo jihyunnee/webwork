@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .line1{
+            border: 1px groove beige;
+            width: 500px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }    
+        .line2{
+            font-size: 30px;
+            background-color: lightgray;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <img src="../image/animal/C1.png" width="130">
+        <div class="two">
+            <h4>Have a Nice Day!!!</h4>
+            <div class="three">
+                <img src="../image/food/10.jpg" width="100">
+            </div>
+
+        </div>
+    </div>
+<script>
+    //고양이 사진에 마우스를 올리면 아래 글자의 속성을 변경(크기:30px, 배경색 : lightgray, 글자색 : blue)
+    var catImg=document.querySelector(".one>img")
+    
+    catImg.onmouseover=function(){
+     this.nextElementSibling.querySelector("h4").style.color="blue"
+     this.nextElementSibling.querySelector("h4").style.fontSize="100px"
+     this.nextElementSibling.querySelector("h4").style.backgroundColor="red"
+    }
+    catImg.onmouseout=function(){
+     this.nextElementSibling.querySelector("h4").style.color="black"
+     this.nextElementSibling.querySelector("h4").style.fontSize="10px"
+     this.nextElementSibling.querySelector("h4").style.backgroundColor=""
+    }
+
+</script>
+
+</body>
+</html>
