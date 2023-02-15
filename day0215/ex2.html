@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #view{
+            position:absolute;
+            left: 200px;
+            top: 50px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!--Web storage: web storage란 클라이언트 디스크에 소량의 데이터를 저장해 두기 위한 스토리지(자바의 쿠키와 비슷)
+    local storage : 반영구적 보관 크기는 약 5mb
+    session storage: 세션이 유효한 만큼만 보관-->
+
+    <h2>local storage & session Strorage</h2>
+
+    <button type="button" id="btnadd">저장</button>
+    <br>
+    <button type="button" id="btndel">삭제</button>
+    <br>
+    <button type="button" id="btnalldel">전체삭제</button>
+    <br>
+    <button type="button" id="btnview">내용보기</button>
+    <br>
+    <div id="view">
+        결과...
+    </div>
+   <script>
+    document.getElementById("btnadd").onclick=function(){
+        //localstorage에 값을 지정하는 방법이 3가지가 있다
+        //localstorage는 내가 지우지 않으면 값이 영구적으로 남아있다
+
+
+        localStorage.setItem("loginId","master");
+        localStorage.address="서울시 강남구";
+        localStorage["hp"]="010-1111-2222";
+
+        sessionStorage.className="Java701";//브라우저를 닫으면 제거된다
+    }
+    document.getElementById("btndel").onclick=function(){
+            //localstorage 지우기
+            localStorage.removeItem("address");
+            localStorage.removeItem("loginId");
+            
+    }
+    document.getElementById("btnalldel").onclick=function(){
+        //전체 localstorage 지우기
+        localStorage.clear();
+    }
+    document.getElementById("btnview").onclick=function(){
+        //
+        let loginid=localStorage.getItem("loginId");
+        let address=localStorage.address;
+        let hp=localStorage["hp"];
+
+        document.getElementById("view").innerText=
+        `loginid : ${loginid}
+        address : ${address}
+        hp:${hp}`;    
+    }
+ 
+
+
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        .myresult{
+            position: absolute;
+            padding-top: 50px;
+            line-height: 100px;
+            width: 400px;
+            height: 200px;
+            margin: 30px 30px 30px 30px;
+            text-align: center;
+        }    
+    </style>
+    <script>
+        window.onload=function()
+{
+        //결과로 접근하는것이 반복 되기 때문에 미리 정의 해놓으면 편하다!!
+        let r=document.querySelector(".myresult");
+        
+        //입력 후 엔터를 누르세요   
+            document.querySelector(".mytxt").onkeyup=function(e){
+                let v=this.value    
+                if(e.keyCode==13){
+                 r.innerText= v;
+                 }
+            }
+         //테두리 조정
+            document.querySelector(".checkbox").onclick=function(){
+                (this.checked)?
+                 r.style.border="10px solid gold"
+                 :r.style.border="none";
+            }
+            
+
+        //radio 글자크기 조정 옵션이 여러개로 늘어나는 순간 배열로 for을 돌리면 편하다!!!
+            
+                let myfontsize=document.getElementsByName("fs");
+                for(let i=0;i<myfontsize.length;i++){
+
+                myfontsize[i].onclick=function(){
+                    document.querySelector(".myresult").style.fontSize=this.value;
+                    }
+                }
+
+        //글자색 배경색 조정
+
+            document.querySelector(".myfc").onchange=function(){
+                 document.querySelector(".myresult").style.color=this.value;
+                 
+                }
+            document.querySelector(".mybc").onchange=function(){
+                 document.querySelector(".myresult").style.backgroundColor=this.value;
+                 
+                }
+
+
+        //글꼴 선택 조정        
+             let myfontfamily=document.querySelectorAll(".myfontfamily");
+                for(let i=0;i<myfontfamily.length;i++){
+
+                    myfontfamily[i].onclick=function(){
+                    document.querySelector(".myresult").style.fontFamily=this.value;
+                    }
+                }
+                
+                
+}                
+    </script>
+</head>
+
+
+
+<body>
+    <H1>문제</H1>
+    <div class="first">
+        입력 후 엔터를 누르세요 :
+        <input type="text" class="mytxt">
+        <input type="checkbox" class="checkbox"><b>테두리</b>
+    
+    </div>
+    <div class="second">
+        <b class="myfs">글자크기 :</b>
+        <label><input type="radio" class="myfontsize" name="fs" value="10px">10px</label>
+        <label><input type="radio" class="myfontsize" name="fs" value="20px">20px</label>
+        <label><input type="radio" class="myfontsize" name="fs" value="30px">30px</label>
+        <label><input type="radio" class="myfontsize" name="fs" value="40px">40px</label>  
+    </div>
+    <div class="three">
+        <b>글자색 : </b>
+        <input type="color" class="myfc">
+        <b>배경색</b>
+        <input type="color" class="mybc">
+    </div>
+    <div class="four">
+        <b>글꼴선택</b>
+        <label><input type="radio" class="myfontfamily" name="ff" value="serif">serif</label>
+        <label><input type="radio" class="myfontfamily" name="ff" value="sans-serif">sans-serif</label>
+        <label><input type="radio" class="myfontfamily" name="ff" value="Jua">Jua</label>
+        <label><input type="radio" class="myfontfamily" name="ff" value="SingleDay">Single</label>
+    </div>
+
+    <div class="myresult">
+        
+
+
+    </div>
+
+</body>
+</html>
