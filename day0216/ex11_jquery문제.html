@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            //문제
+            //1.header중 클래스가 happy인 요소의 글자색과 배경색을 변경
+            $(".happy").css({
+                "backgruond-color":"purple",
+                "color":"blue"
+            })
+            //2.section중 class가 one인 요소 중 첫번째 요소 border 글꼴 변경
+            $(".one").eq(0).css({
+                "border": "1px groove green",
+                "font-family": "Jua"
+            });
+            //3.section중 class가 one인 요소 중 두번째 요소 img src 변경
+            $(".one").eq(1).css({
+                "border": "1px dotted gray",
+                "font-family": "Single Day"
+            });
+            //4.전체 img 중 첫번째 img의 src를 얻어서 아이디가 photo인 이미지의 src에다 넣어주세요
+            let a = $("img").eq(0).attr("src");
+            
+            $("#photo").attr("src",a);
+            //5.ul 아래의 모든 글꼴 글자색변경
+            $("ul").css({
+                "font-family":"Jua",
+                "color":"orange"
+            });
+            //6.ul의 li에 마우스를 올리면 글자색이 빨강으로 벗어나면 다시 검정으로 변경
+            $("ul>li").mouseover(function(){
+              $(this).css("color","black");
+            });
+            $("ul>li").mouseout(function(){
+                $(this).css("color","purple");
+            });
+        }); 
+    </script>
+</head>
+<body>
+    <header class="happy">
+        <h2>비트캠프</h2>
+    </header>
+    <section class="one">
+        <h3>j쿼리 공부</h3>
+        <img src="../image/jquery_image/07.png">
+    </section>
+    <section class="one">
+        <h3>자바스크립트 공부</h3>
+        <img src="../image/jquery_image/05.png">
+    </section>
+    <section class="one">
+        <h3>자바 공부</h3>
+        <img src="../image/jquery_image/01.png">
+    </section>
+    <hr>
+    <ul>
+        <li>짜장면</li>
+        <li>짬뽕</li>
+        <li>탕수육</li>
+        <li>볶음밥</li>
+    </ul>
+    <ul>
+        <li>파스타</li>
+        <li>피자</li>
+        <li>샌드위치</li>
+        <li>치킨</li>
+    </ul>
+
+    <img src="" id="photo">
+</body>
+</html>
