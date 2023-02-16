@@ -1,0 +1,66 @@
+header,section{
+    display: block;
+
+}
+
+a:hover{
+    text-decoration: underline;
+    color: #fff;
+}
+body{
+    font:12px;
+}
+#wrap{
+   width:925px;
+   margin:0 auto;
+}
+#top>.quick{
+    text-align: right;
+   background-color: #ccc;
+   border-bottom: 1px solid #666;
+}
+#top>.quick>li{
+   display: inline;
+   margin: 0 5px;
+}
+/*section*/
+.txt1{
+    margin: 10px 0;
+    font-weight: bold;
+
+}
+.txt2{
+    color: #900;
+}
+
+.items{
+    width: 870px;
+    padding-left: 20px;
+}
+dl.item{
+    width: 200px;
+    height: 300px;
+    border: 1px solid #000;
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden; /*스크롤바 숨기기*/
+}
+dl.item dd.mask{
+    position: absolute;
+    left: 0;
+    top: 260px;
+    background-color: rgba(255,255,255,0.7);
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    cursor:pointer;
+    transition: all 0.3s;
+
+}
+dl.item dd.mask:hover{
+    top: 185px;
+    background-color: goldenrod;
+
+}

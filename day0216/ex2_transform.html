@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid #000;
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin: 30px;
+        }
+        div img{
+            width: 100px;
+            height: 100px;
+
+        }
+        #img1 img{
+            transform: translate(50px,30px);/*x,y 좌표만큼 이동*/
+            -webkit-transform: translate(50px,30px);/*크롬 사파리*/
+            -o-transform: translate(50px,30px);/*오페라*/
+            -moz-transform: translate(50px,30px);/*익스플로러*/
+        }
+        #img2 img{
+            transform: rotate(-45deg);
+        }   
+        #img3 img{
+            transform: scale(2);/*2배 확대 scaleX(2):x방향으로 2배확대*/
+        }   
+        #img4 img{
+            transform: skewX(30deg);/*x,y 방향으로 경사 변형 scewX(x):x방향으로 변형*/
+        }   
+    </style>
+</head>
+<body>
+    <div id="img1">
+        <img src="../image/mainImage/K-041.png">
+    </div>
+    <div id="img2">
+        <img src="../image/mainImage/K-034.png" width="320" height="240">
+    </div>
+    <div id="img3">
+        <img src="../image/mainImage/K-035.png" width="320" height="240">
+    </div>
+    <div id="img4">
+        <img src="../image/mainImage/K-039.png" width="320" height="240">
+    </div>
+</body>
+</html>

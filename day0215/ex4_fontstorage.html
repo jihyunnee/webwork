@@ -11,7 +11,14 @@
     <script>
             let r;
             window.onload=function(){
+               
+
                 r=document.getElementById("result");
+
+                //초기 세팅값 불러오기
+                init_setting();
+
+                //버튼이벤트
 
                 document.getElementById("btnresult").onclick=function(){
 
@@ -34,32 +41,47 @@
                          r.innerHTML=`저의 취미는 ${result}입니다` ; 
                     }
 
-                       
+                    //글자색 적용    
                     let tcolor=document.getElementById("fontcolor").value;
                     r.style.color=tcolor;
-
+                    //배경색
                     let bcolor=document.getElementById("backcolor").value;
                     r.style.backgroundColor=bcolor;
-
+                    //글꼴
                     let font=document.getElementById("selfont").value;
                     r.style.fontFamily=font;
-                } 
-                
-                function init_setting(){
-                    //로컬스토리지에 관련속성 저장하기
-                    localStorage.fontcolor=tcolor
-                    localStorage.backcolor=bcolor
-                    localStorage.fontname=font
 
-                    //result문자에도 적용하기
+                     //로컬스토리지에 관련속성 저장하기 
+                    localStorage.fontcolor=tcolor;
+                    localStorage.backcolor=bcolor;
+                    localStorage.fontname=font;
+
+                }
+            }   
+                function init_setting(){
+
+                    let tcolor=localStorage.fontcolor;
+                    let bcolor=localStorage.backcolor;
+                    let font=localStorage.fontname;
+
+                    //초기값 지정
+
+                    document.getElementById("fontcolor").value=tcolor;
+                    document.getElementById("backcolor").value=bcolor;
+                    document.getElementById("fontcolor").value=font;
+              
+             
+            
+                    //result 문자에도 적용하기
                     r.style.color=tcolor;
                     r.style.backgroundColor=bcolor;
                     r.style.fontFamily=font;
 
             
-        }
+                 }
+                
 
-}    
+ 
 </script>
    
 </head>
