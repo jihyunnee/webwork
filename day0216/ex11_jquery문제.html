@@ -14,12 +14,12 @@
             //문제
             //1.header중 클래스가 happy인 요소의 글자색과 배경색을 변경
             $(".happy").css({
-                "backgruond-color":"purple",
+                "background-color":"yellow",
                 "color":"blue"
             })
             //2.section중 class가 one인 요소 중 첫번째 요소 border 글꼴 변경
             $(".one").eq(0).css({
-                "border": "1px groove green",
+                "border": "10px groove green",
                 "font-family": "Jua"
             });
             //3.section중 class가 one인 요소 중 두번째 요소 img src 변경
@@ -37,10 +37,10 @@
                 "color":"orange"
             });
             //6.ul의 li에 마우스를 올리면 글자색이 빨강으로 벗어나면 다시 검정으로 변경
-            $("ul>li").mouseover(function(){
+            $("ul li").mouseover(function(){
               $(this).css("color","black");
             });
-            $("ul>li").mouseout(function(){
+            $("ul li").mouseout(function(){
                 $(this).css("color","purple");
             });
         }); 
