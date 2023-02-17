@@ -44,12 +44,9 @@
     <script>
         $("div.two").css({
             "width":"400px",
-            "height":"200px",
+            "height":"500px",
             "border":"2px groove gray",
-            "position":"absolute",
-            "margin-left":"400px",
-            "margin-top":"100px"
-        
+               
         });
         //div.two의 위치를 절대좌표로 left 400px top 100px
         
@@ -66,21 +63,28 @@
             "cursor":"pointer"
             
         });
-        $("div.one h2").mouseover(function(){
+        $("div.one div.bit h2").mouseover(function(){
 
               //마우스를 div.one아래의 h2에 마우스를 올리면 그 다음 h4태그로 부터 color값을 얻어서 h2의 배경색으로 지정
-    
-            let ch4=$(this).next("h4").css("color");
-            let p=$(this).before().find("img").attr("src");
-            let t=$(this).before("h3").text();
+            let c=$(this).next().attr("color");
+
+            let t=$(this).parent().siblings("img").attr("src");
+            let txt2=$(this).parent().siblings("h3").text();
             
-            $("div.two h2").css("background-color",ch4);
-            $("div.two img").attr("src",p);
-            $("div.two h3").text(t);
-           
+            let txt1=$(this).next().text();
+
+            $("div.two h2").css({
+                "background-color":c
+            });
+
+            $("div.two img").attr("src",t);
+
+            $("div.two h2").text(txt1);
+            $("div.two h3").text(txt2);
+
             //마우스위치 위의 사진을 우측 사진에 나오게 하고 
             //아래의 h4, 위의 h3 값을 얻어서 우측태그에 넣기
-
+         
         
             
         });
