@@ -96,10 +96,19 @@
 
 <br><br>
 <img src="../image/food/12.jpg" width="130" height="130">
-
-
 <img src="../image/food/10.jpg" width="130" height="130">
-
+<script>
+    $("img").hover(function(){
+        $(this).addClass("selected");
+        //기존 사진 소스를 저장한다
+        photo=$(this).attr("src");
+        //다른 사진으로 변경한다
+        $(this).attr("src","../image/food/11.jpg");
+}, function(){
+    $(this).removeClass("selected");
+    $(this).attr("src",photo);
+});
+</script>
     
 </body>
 </html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+</head>
+<body>
+    <div class="one">
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+    </div>
+    <hr>
+    <div class="two">
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+    </div>
+    <hr>
+    <div class="three">
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+        <h5>Happy Day</h5>
+    </div>
+   
+<script>
+    //div.one 아래 h5중 첫번재 태그에 글자색 변경
+    //$(".one h5").first().css("color","red");
+    //$("div.one>h5:first").css("color","red");
+    /*$(".one h5").eq(0).css({
+        "color":"red"
+    });*/
+    $(".one>h5:eq(0)").css("color","blue");
+
+    //div.one 아래 h5중 마지막 태그에 글자색 변경
+    /*$(".one h5").eq(5).css({
+        "color":"purple"
+    })*/
+    $(".one h5").last().css("color","gold");
+
+
+    //div.one 아래 h5중 짝수 태그에 border 변경
+    
+    $(".one h5:even").css({
+        "border":"3px dotted purple"
+    })
+
+    //div.one 아래 h5중 홀수 태그에 border 변경
+    $(".one h5:odd").css({
+        "color":"hotpink",
+        "border":"2px groove green"
+    })
+    $(".one h5").odd().css("font-family","Jua");
+
+//div.two 아래 h5중 3번 미만 인덱스에 배경색 변경
+$(".one>h5:lt(3)").css("background-color","#afeeee");
+
+//div.one 아래 h5중 4번초과 인덱스에 배경색 변경
+$(".one>h5:gt(4)").css("background-color","#9acd32");
+
+
+
+//div.two 아래 h5중 짝수번지에 글자크기를 2em으로 변경
+$(".two>h5:even").css("font-size","2em");
+
+//div.two 아래 h5중 홀수번지에 글자색과 배경색을 각각 red gray로변경
+$(".two>h5:odd").css({
+    "color":"red",
+    "background-color":"gray"
+});
+
+//div.two 아래 h5중 3번 인덱스와 5번 인덱스의 border를 5px green 으로 변경
+$(".two>h5:eq(3)").css("border","2px solid green");
+$(".two>h5:eq(5)").css("border","2px solid green");
+
+//div.three 아래 h5중 3번 미만 인덱스의 글꼴 Nanum Pen Script
+$(".three>h5:lt(3)").css("font-family","Nanum Pen Script");
+
+//div.three 아래 h5중 3번 이후 인덱스의 글자색, 배경색, 글자크기 모두 변경
+$(".three>h5:gt(2)").css({
+    "color":"blue",
+    "font-size":"50px",
+    "background-color":"black"
+
+});
+
+
+
+</script>
+
+
+    
+</body>
+</html>
