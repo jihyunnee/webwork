@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        div.one figure{
+            float: left;
+            cursor: pointer;
+
+        }
+        div.one figure figcaption{
+            text-align: center;
+        }
+        .result1{
+            position: absolute;/*현재위치 기준 상대좌표 적용*/
+            left:500px;
+            top: 30px;
+            width: 150px;
+           
+        }
+        .clear{
+            clear: both;/*float 속성 해제*/
+        }
+        div.two div.box{
+            border:1px solid black;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            float: left;
+
+        }
+        div.result2{
+            border:3px solid black;
+            cursor: pointer;
+            width: 500px;
+            height: 150px;
+            margin: 50px;
+            float: left;
+
+        }
+    </style>
+    <script>
+        $(function(){
+
+            //처음에 있던 이미지와 제목 얻어두기
+            let firstPhoto=$(".result1 img").attr("src")
+            let firstTitle=$(".result1 h3").text();
+            
+            /*방법1
+            $(".one img").hover(function(){
+                //현재 마우스가 있는 위치의 이미지명
+                let photo=$(this).attr("src");
+            
+                //result1에 적용
+                $(".result1 img").attr("src",photo);
+                
+                //사진 아래의 제목을 얻는다
+                
+                $(".result1 h3").text(title);
+            },function(){
+                //다시 원래 이미지로 변경
+                $(".result1 img").attr("src",first_photo);
+                $(".result1 h3").text(title);
+
+
+            });*/
+            
+            
+            $(".one img").hover(function(){
+                //현재 마우스가 있는 위치의 이미지명
+                let photo=$(this).attr("src");
+            
+                //result1에 적용
+                $(".result1 img").attr("src",photo);
+                
+                /*
+                방법1
+                let title=$(this).next().find("b").text();
+                방법2
+                let title=$(this).parent().find("figcaption").find("b").text();
+                방법 3
+                let title=$(this).siblings("figcation").children("b").text();*/
+
+                let title=$(this).siblings("figcation").children("b").text();
+
+                $(".result1 h3").text(title);
+            },function(){
+                //다시 원래 이미지로 변경
+                $(".result1 img").attr("src",firstPhoto);
+                $(".result1 h3").text(firstTitle);
+
+
+            });
+
+
+            $("div.two div.box").hover(function(){
+                let bcolor=$(this).css("background-color");
+                let title=$(this).text();
+                let firstbcolor=$(".result2").css("background-color");
+                let firsttitle=$(".result2").text();
+                let star=$(this).next().find("b").text();
+
+                
+                $(".result2").css({
+                    "background-color":bcolor
+        
+                });
+
+                $(".result2 h2").text($(this).next().text());
+                
+                $(".result2 b").text(star);
+            },function(){
+                $(".result2").css(firstbcolor);
+                $(".result2").text(firsttitle);
+            });
+            //div.two div.box 에 mouseover 이벤트
+            //배경색을 얻어서 div result2에 나오게 하고 제목을 얻어서 메시지 자리에 나오게 별표는 별표 자리에나오게
+
+            
+    
+
+        });
+    </script>
+
+</head>
+<body>
+    <!--
+        next: 다음태그
+        prev: 이전태그
+        find,children: 하위태그
+        parent: 부모요소
+        siblings:형제요소
+    -->
+    <div class="one">
+        <figure>
+            <img src="../image/jquery_image/01.png">
+            <figcaption>
+                <b>안경쓴 아이</b>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="../image/jquery_image/02.png">
+            <figcaption>
+                <b>외눈 아이</b>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="../image/jquery_image/03.png">
+            <figcaption>
+                <b>춤추는아이</b>
+            </figcaption>
+        </figure>
+
+    </div>
+    <div class="result1">
+        <img src="../image/animal/C1.png" id="photo">
+        <br>
+        <h3>고양이</h3> 
+    </div>
+    <div class="two">
+        <div class="clear"></div>
+        <div class="box" style="background-color: yellowgreen;"></div>
+            <h3>즐거운 금요일</h3>
+            <div class="message">
+                <span>&&&</span>
+            </div>   
+        <div class="clear"></div>
+        <div class="box" style="background-color: blueviolet;"></div>
+            <h3>불금입니다</h3>
+            <div class="message">
+                <span>&&&&&</span>               
+        </div>
+        <div class="clear"></div>
+        <div class="box" style="background-color: blueviolet;"></div>
+            <h3>주말에 공부하자</h3>
+            <div class="message">
+                <span>&&&&&</span>
+            </div>   
+        <div class="clear"></div>
+        <div class="box" style="background-color: #abcabc;"></div>
+            <h3>재미있는 jquery</h3>
+            <div class="message">
+                <span>&&&&&</span>
+            </div>           
+    </div>
+    <div class="result2">
+        <h2>메시지</h2>
+        <b>&&&</b>
+    </div>
+</body>
+</html>

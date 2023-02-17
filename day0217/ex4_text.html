@@ -23,6 +23,32 @@
                 let code=prompt("문자열을 입력해 보세요");
                 $("div:eq(1)").text(code);//innerText와 같다
             })
+            $("#btn3").click(function(){
+                let code=prompt("append 한 문자열 또는 태그 입력하기");
+                $("div:eq(2)").append(code);//
+
+            })
+            $("#btn4").click(function(){
+                let code=prompt("앞에들어갈 한 문자열 또는 태그 입력하기");
+                $("div:eq(3)").before(code);//
+
+            })
+            $("#btn5").click(function(){
+                let code=prompt("뒤에들어갈 한 문자열 또는 태그 입력하기");
+                $("div:eq(4)").after(code);//
+
+            })
+
+    
+    
+    
+    /*html : html 코드 넣기
+    text : text만 넣기
+    append : 태그주기
+    after: 특정태그 이후에 추가
+    next: 다음 태그
+    prev: 이전태그
+    find: 하위태그에서 검색*/
 
 
 
@@ -33,26 +59,36 @@
     </script>
 
 </head>
+
+
 <body>
-    <!--html : html 코드 넣기
-    text : text만 넣기
-    append : 태그주기
-    after: 특정태그 이후에 추가
-    next: 다음 태그
-    prev: 이전태그
-    find: 하위태그에서 검색-->
+    
+    
 <button type="button" id="btn1" class="btn btn-danger btn-sm">
     div 태그에 html 코드 넣기
 </button>
+<div>첫번째 div</div>
 <hr>
 <button type="button" id="btn2" class="btn btn-success btn-sm">
     두번째 div 태그에 text 코드 넣기
 </button>
-
-<div>첫번째 div</div>
-<div>첫번째 div</div>
-<div>첫번째 div</div>
-
+<div>두번째 div</div>
+<hr>
+<button type="button" id="btn3" class="btn btn-primary btn-sm">
+    세번째 div 태그에 append 코드 넣기
+</button>
+<div style="border: 1px solid green">세번째 div</div>
+<hr>
+<button type="button" id="btn4" class="btn btn-primary btn-sm">
+    네번째 div 태그에 before 코드 넣기
+</button>
+<div style="border: 1px solid green">세번째 div</div>
+<hr>
+<button type="button" id="btn5" class="btn btn-primary btn-sm">
+    5번째 div 태그에 after 코드 넣기
+</button>
+<div style="border: 1px solid green">세번째 div</div>
+<hr>
 
 
 </body>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        *{
+            font-family: "Single Day";
+
+        }
+        .photo{
+            width:  100x;
+            height: 100px;
+            border: 1px solid gray;
+            margin: 10px;
+
+        }
+
+        td{
+            cursor:pointer;
+        }
+
+        div.result{
+            margin:10px 10px;
+            border: 3px solid gray;
+            padding: 10px;
+            font-size:20px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        $(function(){ 
+
+            $("td").mouseover(function(){
+                let r=$(this).attr("r");
+                let g=$(this).attr("g");
+                let b=$(this).attr("b");
+                
+                let photosrc=$(this).find("img").attr("src");
+                let bg=$(this).css("background-color");
+                $("div.result").css({
+                    "color": bg,
+                    "border-color":bg
+
+                });
+                
+                
+                let s=`
+                <img src="${photosrc}">
+                <br><br>
+                <h2> R:${r}, G: ${g}, B:${b} </h2>`;
+
+                $("div.result").html(s);
+
+            });
+            //td에 마우스오버 이벤트
+            //사진을 얻어서 div.result태그에 넣기
+            //배경색을 얻어서 div의 글자색에 적용
+            //R:G:B 이런식으로 사진 옆이나 아래에 출력하기 
+        })
+    </script>
+</head>
+<body>
+    <table class="table table bordered" style="width: 300px;">
+        <script>
+            for(let i=1;i<=4;i++){
+                document.write("<tr>");
+                    for(let col=1;col<=5;col++){
+                        //rgb값을 랜덤하게 얻는다
+                        let r=parseInt(Math.random()*256);
+                        let g=parseInt(Math.random()*256);
+                        let b=parseInt(Math.random()*256);
+
+                        document.write(`<td style='background-color:rgb(${r},${g},${b})' r="${r}" g="${g}" b="${b}">`);
+                            let rnd=parseInt(Math.random()*20)+1;
+                            document.write(`<img src="../image/moviestar/${rnd}.jpg" class="photo">`);
+                            document.write("</td>");
+                    }
+
+                    document.write("</tr>")
+
+            }
+        </script>
+
+    </table>
+    
+    <div class="result"></div>
+</body>
+</html>
