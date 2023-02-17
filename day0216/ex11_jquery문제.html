@@ -29,8 +29,21 @@
             });
             //4.전체 img 중 첫번째 img의 src를 얻어서 아이디가 photo인 이미지의 src에다 넣어주세요
             let a = $("img").eq(0).attr("src");
+            let c = $("img").eq(2).attr("src");
+
+            $("img").eq(2).mouseover(function(){
+
+                $(this).attr("src",a);
+            });
+            $("img").eq(2).mouseout(function(){
+
+                $(this).attr("src",c);
+            });
+            
             
             $("#photo").attr("src",a);
+            
+            
             //5.ul 아래의 모든 글꼴 글자색변경
             $("ul").css({
                 "font-family":"Jua",
@@ -38,11 +51,20 @@
             });
             //6.ul의 li에 마우스를 올리면 글자색이 빨강으로 벗어나면 다시 검정으로 변경
             $("ul li").mouseover(function(){
-              $(this).css("color","black");
+              $(this).css({
+                "background-color":"black",
+                "color":"gold"
+              });
             });
             $("ul li").mouseout(function(){
-                $(this).css("color","purple");
+                $(this).css({
+                "background-color":"",
+                "color":"purple"
             });
+            });
+
+
+
         }); 
     </script>
 </head>
