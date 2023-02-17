@@ -46,20 +46,28 @@
             
             //5.ul 아래의 모든 글꼴 글자색변경
             $("ul").css({
-                "font-family":"Jua",
+                "font-family":"Gamja Flower",
                 "color":"orange"
             });
             //6.ul의 li에 마우스를 올리면 글자색이 빨강으로 벗어나면 다시 검정으로 변경
             $("ul li").mouseover(function(){
               $(this).css({
-                "background-color":"black",
-                "color":"gold"
+                "width":"150px",
+                "background-color":"gold",
+                "color":"green",
+                "font-size":"30px",
+                "border":"2px dotted brown",
+                "transition":"rotate(45deg)"
               });
             });
+            // 원래값을 모를 떄 다시 돌려 놓기 위해서는 class를 미리 만들어 놓는 것이 편함!!!
             $("ul li").mouseout(function(){
                 $(this).css({
+                "width":"150px",
                 "background-color":"",
-                "color":"purple"
+                "color":"purple",
+                "font-size":"15px",
+                "border":""
             });
             });
 
