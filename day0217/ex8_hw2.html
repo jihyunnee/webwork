@@ -11,19 +11,29 @@
        body, body *{
             font-family: 'Single Day';
         }
-        .txtrandom b{
-            font-size:"300px";
-            text-align:"center";
-
-
-        }
+       
     </style>
+     <script>
+$(function(){ 
+
+$("td").mouseover(function(){
+   
+    
+    $("div.result").css({
+        "cursor":"pointer"
+    });
+
+});
+
+})          
+    </script>
 
 
 </head>
 <body>
 
 <div>
+    <h1 class="result">결과값 나오는 곳</h1>
     <table class="txtrandom">
         <script>
              for(let row=1;row<=5;row++){
@@ -37,13 +47,16 @@
                         
                 
                         //document.write(`<td style='color:rgb(${r},${g},${b})'>`) 
-                        document.write(`<td style="color:rgb(${r},${g},${b}); font-size: 30px">`) 
+                        document.write(`<td style="color:rgb(${r},${g},${b}); font-size: 30px" r=${r},g=${g},b=${b}>`) 
                        document.write(`${su}`);
                        document.write("</td>");
                     }
                     document.write("</tr>");
-             }
+                    
+             };
+
         </script>
+       
        
     </table>
 </div>
@@ -53,9 +66,6 @@
     조건
       글자의 크기는 30px 각 칸의 정가운데 나오게 해주세요
       글자색은 랜덤하게 rgb 값을 구해서 적용시켜주세요
-
-
-
 
     table 위에 h1 태그를 만든후
     td 에 마우스를 올리면 해당 글자색을 css로 얻어서 h1 에 그 값을 출력시키고
