@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .myphoto{
+            width: 80px;
+            height: 80px;
+            border-radius: 100px;
+            border: 2px groove blue;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- The Modal 부트스트랩에서 코드 스니펫할 경우 아이디를 바꾸어주는 것이 좋음
+  아이디 바꿀 때는 적용되는 곳도 같이 확인해서 바꾸기!-->
+  <div class="modal" id="myShopModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">음식 자세히보기</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <img src="" class="modal_photo" style="width: 90%;" alt="사진나오는 곳">
+          <br>
+          <h3 class="modal_title">제품제목..</h3>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+
+    <table class="table table-bordered border-primary">
+        <thead>       
+        <tr>    
+            <th>순서</th>    
+            <th>이름</th>    
+            <th>가격</th>      
+            <th>이미지</th>
+        </tr>
+        </thead>
+
+    <script>
+        let food_data ={
+        "foodlist":[
+            {"foodname":"에그마요샌드위치","foodprice":"11000",
+            "foodsrc":"../image/food/1.jpg"},
+            {"foodname":"닭꼬치구이","foodprice":"7000",
+            "foodsrc":"../image/food/2.jpg"},
+            {"foodname":"육개장","foodprice":"12000",
+            "foodsrc":"../image/food/3.jpg"},
+            {"foodname":"망고빙수","foodprice":"15000",
+            "foodsrc":"../image/food/11.jpg"},
+            {"foodname":"오므라이스","foodprice":"8000",
+            "foodsrc":"../image/food/6.jpg"},
+            {"foodname":"비프카레","foodprice":"15000",
+            "foodsrc":"../image/food/4.jpg"}
+
+        ]
+        }
+
+
+        $.each(food_data,function(idx,item){                 
+            $.each(item,function(idx2,item2){
+
+                let s=`
+                <tbody>          
+                <tr>
+                    <td>${idx2+1}</td>
+                    <td class="myfoodname">${item2.foodname}</td>
+                    <td>${item2.foodprice}</td>
+                    <td>
+                        <img src="${item2.foodsrc}" class="myphoto"
+                        data-bs-toggle="modal" data-bs-target="#myShopModal">
+                    </td>
+                </tr>
+                </tbody>                   
+                `
+                document.write(s)
+            })
+            
+
+        })
+        $("img.myphoto").click(function(){
+            $("img.modal_photo").attr("src",$(this).attr("src")).css("border","5px inset blue")
+            $("h3.modal_title").text($(this).parent().siblings(".myfoodname").text())
+        })
+       
+    </script>
+
+</table>
+
+</body>
+</html>

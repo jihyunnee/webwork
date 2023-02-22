@@ -23,6 +23,7 @@
             font-size: 20px;
             margin-top: 100px;
             text-align: center;
+            padding-top: 30px;
     
         }
     </style>
@@ -42,7 +43,7 @@
         </label>
     
     <br><br>
-
+        <h2 class="alert alert-danger">글꼴</h2>
         <label>
             <input type="radio" class="form-check-input" value="Jua" 
             name="fontfamily">Jua
@@ -61,7 +62,7 @@
         </label>
 
     <br><br>
-
+        <h2 class="alert alert-danger">글꼴크기</h2>
         <label>
             <input type="radio" class="form-check-input" value="10px"
             name="fontch">10px
@@ -97,21 +98,18 @@ $(".btnresult").click(function(){
 
     let s= $("#txtmsg").val();
 
-    let bold=$("#bold").prop("checked");
+    let bold=$("#bold:checked").prop("checked");
     let italic=$("#italic").prop("checked");
     let underline=$("#underline").prop("checked");
 
     let fontF= $("input[name='fontfamily']:checked").val();
     let fontS= $("input[name='fontch']:checked").val();
     
-  
-    if(bold==true){
-        $(".result").html(s).css({
-            "font-weight": "bold"
-        });   
-    } 
+       $(".result").css({
+            "font-weight": bold==true?"bold":"normal" 
+        });    
     if(underline==true){
-        $(".result").html(s).css({
+        $(".result").css({
             "text-decoration": "underline"
         });   
     }
