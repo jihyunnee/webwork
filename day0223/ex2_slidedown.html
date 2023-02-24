@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
+
+    <script>
+        $(function(){
+
+            $(".title>b").css({
+                "cursur":"pointer",
+                "font-size":"20px"
+
+            })
+
+            $("div.content").hide();
+
+            $(".title>b").click(function(){
+
+                $(this).next().slideDown('slow')
+                
+                //현재선택한 것 외의 기사 내용은 사라지게 한다
+                $(this).parent().siblings().find("div.content").slideUp('slow');
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="title alert alert-warning">
+        <b>中 "타지키스탄 중국 접경 지역서 규모 7.2 지진 발생"</b>
+        <div class="content">
+            <pre>
+                오늘(23일) 오전 8시 37분쯤(현지시간) 중국 지진대가 중앙아시아 타지키스탄의 중국 접경 지역에서 규모 7.2의 강진이 발생했다고 밝혔습니다.
+
+                진원은 북위 37.98도, 동경 73.29도에 위치하며, 중국 신장위구르자치구 변경 지역 부근입니다.
+
+                진원의 깊이는 10km로 발표됐습니다.
+
+                한편, 유럽지중해지진센터(EMSC)는 이 지진의 규모를 7.1로 발표했다가 6.3으로 수정했습니다.
+            </pre>
+        </div>
+    </div>    
+    <div class="title alert alert-danger">
+        <b>한은, 기준금리 연 3.5%로 동결…1년 만에 인상 멈춰</b>
+        <div class="content">
+            <pre>
+                5%대 고물가에도 ‘경기 둔화’ 고려한 듯
+                7연속 금리 인상 멈추고 1년 만에 동결
+                                
+                한국은행이 기준금리를 현 수준인 연 3.5%로 동결했다. 물가상승률이 여전히 5%대로 높고 미국 연방준비제도(Fed·연준)의 긴축 우려도 커졌지만, 올해 들어 경기가 둔화하고 있는 점을 고려해 금리 인상 행진을 멈춘 것으로 풀이된다.
+                
+                한국은행 금융통화위원회는 23일 열린 정례회의에서 기준금리를 연 3.5%로 동결했다고 밝혔다. 지난해 2월 이후 1년 만의 금리 동결이다. 이번 결정으로 2021년 8월부터 시작된 금리 인상 사이클(국면)이 마무리 단계에 접어들었다는 분석이 나온다. 시장에서는 한국은행이 현 금리 수준을 연말까지 유지하거나 상반기 중 연 3.75%로 한 차례 더 인상하는 데 그칠 것이란 의견이 지배적이다.
+            </pre>
+        </div>
+    </div>    
+    <div class="title alert alert-info">
+        <b>“교통비 내면 못 살지…저임금 일자리뿐인데”</b>
+        <div class="content">
+            <pre>
+                김정국씨(가명·83)는 노인 일자리로 한 달 27만원을 번다. 
+                기초연금이 유일한 소득인 김씨에게 노인 일자리를 통한 27만원의 추가 수입은 없어서는 안 될 돈이다. 아내와 함께 아끼고 아껴서 빠듯하게 한 달을 산다. 물가가 오른 이후에는 돼지고기 한 근 사먹기도 힘들다. 김씨는 노인 일자리로 독거노인의 고독사를 방지하는 업무를 담당했다. 인근 지역 독거노인의 집을 방문해 상황을 살피고 대화도 하면서 고립되지 않도록 하는 일이다. 그러다가 지난가을 초등학교로 일자리를 옮겼는데, 생각지도 못한 어려움이 생겼다. 
+                아침 9시까지 학교에 출근하기 위해 지하철을 타야 했다. 사람이 많기도 하거니와 경로우대석에 앉아 있다 보면 젊은 직장인들에게 눈치가 보였다. 김씨는 “나도 일하기 위해 출근하는 건데 젊은 사람들이 그렇게 생각하겠나. ‘저 노인은 왜 이렇게 바쁜 시간에 굳이 지하철을 타고 있을까’라며 욕할 것 같다. 가능하다면 다시 동네에서 하던 일로 바꾸고 싶다”라고 말했다.
+
+            </pre>
+        </div>
+    </div>
+    
+</body>
+</html>

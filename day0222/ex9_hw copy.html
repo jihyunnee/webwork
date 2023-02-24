@@ -14,6 +14,8 @@
         .myphoto{
             width: 80px;
             height: 80px;
+            border-radius: 100px;
+            border: 2px groove blue;
         }
     </style>
 
@@ -36,8 +38,6 @@
           <img src="" class="modal_photo" style="width: 90%;" alt="사진나오는 곳">
           <br>
           <h3 class="modal_title">제품제목..</h3>
-          <br>
-          <b class="modal_price">가격 : </b>
         </div>
   
         <!-- Modal footer -->
@@ -54,9 +54,9 @@
         <thead>       
         <tr>    
             <th>순서</th>    
-            <th>이름/이미지</th>    
+            <th>이름</th>    
             <th>가격</th>      
-            
+            <th>이미지</th>
         </tr>
         </thead>
 
@@ -87,13 +87,13 @@
                 <tbody>          
                 <tr>
                     <td>${idx2+1}</td>
-                    <td class="myfoodname">
-                      <img src="${item2.foodsrc}" class="img-thumbnail myphoto"
+                    <td class="myfoodname">${item2.foodname}</td>
+                    <td>${item2.foodprice}</td>
+                    <td>
+                        <img src="${item2.foodsrc}" class="myphoto"
                         data-bs-toggle="modal" data-bs-target="#myShopModal">
-                      <b>${item2.foodname}</b>                        
                     </td>
-                    <td><b>${item2.foodprice}원<b></td>
-                  </tr>   
+                </tr>
                 </tbody>                   
                 `
                 document.write(s)
@@ -103,13 +103,11 @@
         })
         $("img.myphoto").click(function(){
             $("img.modal_photo").attr("src",$(this).attr("src")).css("border","5px inset blue")
-            $("h3.modal_title").text($(this).next().text()).css({
+            $("h3.modal_title").text($(this).parent().siblings(".myfoodname").text()).css({
 
                 "color":"red",
                 
             })
-
-            $("b.modal_price").text($(this).parent().next().find("b").text())
         })
        
     </script>
