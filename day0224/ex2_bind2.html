@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <style>
+    div.mytooltip{
+        position: absolute;
+        line-height: 1.5;
+        color: black;
+        width: 200px;
+        background-color: #f90;
+        border: 2px solid white;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 30px;
+        position: absolute;
+        opacity: 0.9;
+        display: none;
+    }
+    .view{
+            cursor:pointer;
+            background-color:#cccc
+        }
+    ol.today li{
+        cursor: pointer;
+        font-size: 22px;
+        width: 200px;
+    }
+    ol.today li:hover{
+        background-color: rgba(0,0,0,0.3);
+    }    
+</style>
+<script>
+    $(function(){
+        $("a").bind({
+            mousemove:function(e){
+                $("div.mytooltip").css({
+                    "left":e.pageX+"px",
+                    "top":e.pageY+"px"
+                });
+            },
+            mouseover:function(){
+                $("div.mytooltip").fadeIn('fast');
+                $("div.mytooltip").html(`
+                Java<br>
+                HTML5<br>
+                CSS<br>
+                Mysql
+                
+                `).css("background-color","#f90");
+
+            },
+            mouseout:function(){
+                $("div.mytooltip").fadeOut('fast');
+            }
+        })
+
+        $("b.view").bind({
+
+            mouseover:function(){
+                //태그에 들어있는 색상얻기
+                let color=$(this).attr("color")
+                let text=$(this).text()
+                $("div.mytooltip").css("background-color",color).html(text)
+                $("div.mytooltip").fadeIn();
+
+            },
+            mouseout:function(){
+                $("div.mytooltip").fadeOut();
+            },
+            mousemove:function(e){
+                $("div.mytooltip").css({
+                    "left":e.pageX+"px",
+                    "top":e.pageY+"px"
+                });
+
+            },
+        })
+
+    $("ol.today li").bind({
+        mousemove:function(e){
+            $("div.mytooltip").css({
+                    "left":e.pageX+"px",
+                    "top":e.pageY+"px"
+                });
+        },
+        mouseover:function(){
+            let p=$(this).attr("photo");
+            let text=$(this).text();
+            $("div.mytooltip").html(`
+            <b>${text}</b><br>
+            <img src=${p} width=100>
+            `)
+            $("div.mytooltip").show();
+        },
+        mouseout:function(){
+            $("div.mytooltip").hide();
+        }
+        })
+    })
+</script>
+</head>
+<body>
+    
+    <h4 class="alert alert-info">Tooltip 링크부분에 마우스를 올려보세요</h4>
+    <br><br>
+    <a style="font-size: 25px; cursor: pointer;">tooltiptooltiptooltiptooltip</a>
+    <pre>
+
+        <b class="view" style="color: brown;">"그거 사실 브랜드병일지도 몰라."</b> 
+
+얼마 전 사석에서 만난 친구가 제게 던진 말입니다. 친구는 회사 밖 '정글'에서 살아남은 6년차 대표이기도 한데요. 새롭게 기획하는 제품에 대해 이런저런 조언을 덧붙였더니, 꼼꼼히 메모를 하는 듯 하다, 깊게 한숨을 내쉬더군요. 
+
+"방향만 맞다면 이젠 빨리 실행하고 실패해야 해. 네이밍이니 상단전략이니, 이런 것들만 따지고 있는 건, 진짜 폼만 잡는 중증 브랜드병에 걸린 걸지도 몰라." 
+
+친구와 나눈 이야기 때문인지, 얼마 전 서점에서 <빠르게 실패하기>란 책을 하나 구매했습니다. 부제는 '천 개의 성공을 만든 작은 행동의 힘'인데요. 주르륵 목차만 훑어 보아도 어쩜 그렇게 제 속마음을 고스란히 읽고 있던지요. 
+
+이 책의 타깃은 매우 명확합니다. "큰 꿈과 장황한 계획만 세우느라 지쳐 떨어져서, 혹은 지금의 궤도를 벗어나거나 실패하는 것이 두려워서, 정작 아무 것도 시도하지 못하는 안타까운 누군가"를 위해서랄까요. 
+
+사실 뻔한 이야기라고 생각될 법도 하지만, 더 무서운 건 이겁니다. 장작 363페이지에 이르는 그 강력한 동기부여의 '따발총 같은 잔소리(?)'들을 다 읽었음에도 불구하고, 책을 덮은 후 또 계획만 짜거나, 생각만 하거나, 탁상공론의 '빅픽처'만 그리고 있을 누군가는 여전히 존재할 거라는 사실이죠. (그게 사실 저일지도요--;;)
+
+그러니 동기부여 전문가 개리 바이너척은 "쉬펄, 오늘 죽어도 계속 그렇게 살거야?"를 외치고, 유튜버들은 자신들의 영업 비밀을 공개하면서도 "어차피 알려줘도 안 해요"라며 대중을 슬쩍 조롱하기도 합니다. 그만큼 이제 성공이라는 것은 '전문가의 입바른 한담' 영역을 일찌감치 벗어난 셈이겠죠? 
+
+마치 스스로 물건을 팔아보지 않은 브랜드 기획자가, 브랜드 기획에 대해 말하고 있으면 '브랜드 중증병'이 되거나, '웃기고 있네'가 되는 것처럼, 빠르게 실패하라는 말은  세상에서 빠르게 자신을 증명하라는 묵직한 예언처럼 느껴집니다. 
+
+때문에, 이 책의 많은 조언들 중에서도 특히 '슈퍼 파워풀' 하게 밑줄과 별표를 친 저만의 '원 픽' 대목은 바로 이것이기도 했습니다. 
+
+<b class="view" style="color: brown;">"지금 당장 다이빙대에서 뛰어 내려!"</b>
+
+폴인에 '커뮤니티'가 생겼으니 말인데, 저 같은 '생각이 너무나도 많은, 욕심은 우주처럼 많지만 행동엔 자꾸 소심해지는 브랜드 기획자'를 위해, 목줄을 끌고 갈 수 있는 '커뮤니티 코치'가 생겼으면 하는 바람입니다. 
+
+클래스 완강율이 평균 30%라는 통계가 시사하듯, 다채로운 프로젝트들이 만들어지고, 그 프로젝트들을 '채찍질하며' 끌고 가는 마성의 코치님들이 있으면, 전 너무나도 충성하며 끌려가고 싶은 마음이 있으니까요. "이래도 안 해? 이래도?" 하며 많은 담금질을 당하면, 그놈의 빅픽처를 짜느라 근육까지 노곤해지던 제 '브랜드 중증병'을 조금은 해결할 수 있을 듯 합니다. 
+
+아! 가장 중요한 책 링크를 남기고 가야겠네요. 
+여러분은 오늘 어떤 '빠른 실패'를 남길 생각이신가요? 
+    </pre>
+    <div class="mytooltip">
+        Java<br>
+        HTML5<br>
+        CSS<br>
+        Mysql
+    </div>
+
+<hr>
+
+<h2>오늘 나의 식사 및 쇼핑 목록입니다</h2>
+    <ol type=1 class="today">
+        <li photo="../image/food/1.jpg">에그샌드위치</li>
+        <li photo="../image/food/11.jpg">망고빙수</li>
+        <li photo="../image/food/8.jpg">꽈배기회색스웨터</li>
+        <li photo="../image/shop/29.jpg">여름용모자</li>
+    </ol>
+
+
+</body>
+</html>
