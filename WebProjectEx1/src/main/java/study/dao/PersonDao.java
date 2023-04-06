@@ -8,11 +8,12 @@ import java.util.List;
 import java.util.Vector;
 
 import db.DbConnect;
+import db.DbConnect2;
 import study.dto.PersonDto;
 
 public class PersonDao {
 
-DbConnect db=new DbConnect();
+DbConnect2 db=new DbConnect2();
 	
 
 	//insert

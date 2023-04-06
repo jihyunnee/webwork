@@ -1,6 +1,5 @@
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="org.json.simple.JSONArray"%>
-<%@page import="com.mysql.cj.xdevapi.JsonArray"%>
 <%@page import="study.dto.myCarDto"%>
 <%@page import="study.dao.myCarDao"%>
 <%@page import="java.util.List"%>

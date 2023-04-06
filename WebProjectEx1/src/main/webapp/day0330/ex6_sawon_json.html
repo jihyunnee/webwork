@@ -15,7 +15,7 @@
 	.mysawonicon
 	{
 		margin: 30px 30px;
-		font-size: 80px;
+		font-size: 30px;
 	}
 	
 	#list1,#list2{
@@ -25,10 +25,10 @@
 	.list{
 		margin-left: 30px;
 		margin-top: 20px;
-		font-size: 15px;
+		font-size: 25px;
 	}
 	
-	.cardel{
+	.sawondel{
 		cursor: pointer;
 	}
 </style>
@@ -55,7 +55,7 @@
 		//아이콘 이벤트
 		$("#list1").click(function(){
 			$(this).css("color","red");
-			$("#list2").css("color","black");
+			$("#list1").css("color","black");
 			
 			localStorage.select=1;
 			list1();
@@ -63,7 +63,7 @@
 		
 		$("#list2").click(function(){
 			$(this).css("color","red");
-			$("#list1").css("color","black");
+			$("#list2").css("color","black");
 			localStorage.select=2;
 			list2();
 		});
@@ -100,14 +100,17 @@
 		
 	});
 	
-	function list1(){
+	function list(select){
+		console.log(select);
+		
 		$.ajax({
 			type:"get",
 			url:"../data/jsonsawondata.jsp",
 			dataType:"json",
+			data:{"select":select},
 			success:function(res){
 				let s="";
-				s+="<table class='table table-bordered'>";
+				s+="<table class='table table-dark table-striped'>";
 				s+="<tr bgcolor='#ccc'><th>번호</th><th>이름</th><th>점수</th><th>성별</th><th>부서</th></tr>";
 				$.each(res,function(idx,ele){
 					s+=
@@ -115,9 +118,47 @@
 						<tr>
 							<td align='center' width=50>${idx+1}</td>
 							<td>${ele.name}씨</td>
-							<td>${ele.carprice}점</td>
-							<td>${ele.gender}성별</td>
-							<td>${ele.gender}부</td>
+							<td>${ele.score}점</td>
+							<td>${ele.gender}</td>
+							<td>${ele.buseo}</td>
+					    </tr>
+					
+					`;
+				});
+				
+				s+="</table>";
+				
+				$("div.list").html(s);
+			},
+			statusCode:{
+				404:function(){
+					alert("파일이 없어요");
+				},
+				500:function(){
+					alert("서버 오류..다시한번 코드를 확인하세요");
+				}
+			}
+		});
+	}
+	
+	function list1(){
+		$.ajax({
+			type:"get",
+			url:"../data/jsonsawondata.jsp",
+			dataType:"json",
+			success:function(res){
+				let s="";
+				s+="<table class='table table-dark table-striped'>";
+				s+="<tr bgcolor='#ccc'><th>번호</th><th>이름</th><th>점수</th><th>성별</th><th>부서</th></tr>";
+				$.each(res,function(idx,ele){
+					s+=
+					`
+						<tr>
+							<td align='center' width=50>${idx+1}</td>
+							<td>${ele.name}씨</td>
+							<td>${ele.score}점</td>
+							<td>${ele.gender}</td>
+							<td>${ele.buseo}</td>
 					    </tr>
 					
 					`;
@@ -141,7 +182,7 @@
 	function list2(){
 		$.ajax({
 			type:"get",
-			url:"../data/jsoncardata.jsp",
+			url:"../data/jsonsawondata.jsp",
 			dataType:"json",
 			success:function(res){
 				let s="";
@@ -150,17 +191,18 @@
 				$.each(res,function(idx,ele){
 					s+="<td align='center'>";
 					//사진넣기
-					s+=`<img src="../image/mycarimage/${ele.carphoto}" border=1 width=120 height=80>`;
-					s+=`<br>${ele.carname} <i class="bi bi-trash cardel" num="${ele.num}"></i><br>`;
-					s+=`${ele.carprice}만원<br>`;
-					s+=`${ele.guipday} 구입`;
+					
+					s+=`<br>${ele.name} <i class="bi bi-trash cardel" num="${ele.num}"></i><br>`;
+					s+=`${ele.score}만원<br>`;
+					if("${ele.buseo}"=="남자"){
+						s+=`${ele.gender}<br>`
+					}
+					
+					s+=`${ele.gender}만원<br>`;
+					s+=`${ele.buseo} 구입`;
 					
 					s+="</td>";
 					
-					//한줄에 사진 3개씩만 출력
-					if((idx+1)%3==0){
-						s+="</tr><tr>";
-					}
 				});
 				s+="</tr>";
 				s+="</table>";
@@ -181,10 +223,12 @@
 </script>
 </head>
 <body>
-  <div class="mycaricon">
-  		<i class="bi bi-card-list" id="list1"></i>
-  		<i class="bi bi-images" id="list2"></i>
-  </div>
+  <div class="mysawonicon">
+  		<i class="bi bi-asterisk" id="list1">전체</i>
+  		<i class="bi bi-person-check" id="list2">남자</i> 
+  		<i class="bi bi-person-check-fill" id="list3">여자</i> 
+  	
+  </div>		
   
   <div class="list"  style="width:500px;">11</div>
 </body>
